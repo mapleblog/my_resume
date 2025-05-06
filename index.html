@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="前端开发工程师个人简历 - 展示专业技能、项目经验和工作历程">
+    <meta name="keywords" content="前端开发, Web开发, React, Vue, JavaScript, HTML, CSS, 简历, 作品集">
+    <title>Personal - CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#hero" class="logo"> </a>
+            <button class="nav-toggle" aria-label="切换导航">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 首页/英雄区 -->
+    <section id="hero" class="hero">
+        <!-- 添加浮动元素 -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>GOH TING KANG</h1>
+                    <div class="typing-text">IT Support Engineer</div>
+                    <p>IT Support Engineer with a strong background in software development and a passion for creating user-friendly and high-performance websites and web applications.</p>
+                    <div class="hero-btns">
+                        <a href="#portfolio" class="btn">Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Contact</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="C:\Users\HostDemo\Pictures\disneyland-paris.jpg" alt="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我部分 -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a passionate frontend developer with extensive web development experience. 
+		    I prioritize user experience and interface aesthetics while maintaining code quality and 		    performance optimization.</p>
+
+                    <p>Over the past few years, I have developed multiple large-scale projects, from corporate 		    websites to complex web applications. I excel at converting designers' creative ideas into 	   	    practical products and ensure they perform flawlessly across all devices.</p>
+
+                    <p>I love learning new technologies and staying up-to-date with the latest trends in 		    frontend development. I believe that technology should serve user experience, not just for 		    the sake of technology.</p>
+                </div>     
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能部分 -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Node.js</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Linux / Windows</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Docker</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Vue</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Others</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Tailwind CSS</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>UI/UX 设计</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>响应式设计</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>性能优化</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 经历部分 -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Career Experience</h2>
+                <p>我的职业旅程与成长历程</p>
+            </div>
+            <!-- 画布背景元素 -->
+            <div class="experience-canvas">
+                <div class="canvas-element ce-1"></div>
+                <div class="canvas-element ce-2"></div>
+                <div class="canvas-element ce-3"></div>
+                <div class="canvas-element ce-4"></div>
+            </div>
+            
+            <div class="experience-grid">
+                <!-- 经历项1 -->
+                <div class="experience-card" data-aos="fade-up">
+                    <div class="experience-card-inner">
+                        <div class="experience-card-header">
+                            <div class="exp-year">2023 - 2025</div>
+                            <div class="exp-icon"><i class="fas fa-laptop-code"></i></div>
+                            <h3>IT Support Engineer</h3>
+                            <h4>UnitedCaps Kulim Sdn Bhd</h4>
+                        </div>
+                        <div class="experience-card-content">
+                            <p>负责公司主要产品的前端架构设计和开发，优化用户界面和用户体验。</p>
+                            <ul class="exp-list">
+                                <li><i class="fas fa-check-circle"></i> 领导团队开发了新版企业管理系统，提高了用户满意度30%</li>
+                                <li><i class="fas fa-check-circle"></i> 优化前端性能，使页面加载速度提升50%</li>
+                                <li><i class="fas fa-check-circle"></i> 引入现代前端开发工作流，包括自动化测试和CI/CD</li>
+                                <li class="exp-more-item"><i class="fas fa-check-circle"></i> 负责多个前端项目的技术选型和架构设计</li>
+                                <li class="exp-more-item hidden"><i class="fas fa-check-circle"></i> 开发了公司内部组件库，提高了开发效率</li>
+                                <li class="exp-more-item hidden"><i class="fas fa-check-circle"></i> 与设计和产品团队合作，改进用户界面和交互体验</li>
+                            </ul>
+
+
+                            <div class="exp-toggle-container">
+                                <div class="exp-toggle">显示更多 <i class="fas fa-chevron-down"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 经历项2 -->
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="experience-card-inner">
+                        <div class="experience-card-header">
+                            <div class="exp-year">2020 - 2022</div>
+                            <div class="exp-icon"><i class="fas fa-code"></i></div>
+                            <h3>前端开发工程师</h3>
+                            <h4>互联网科技有限公司</h4>
+                        </div>
+                        <div class="experience-card-content">
+                            <p>负责公司电商平台的前端开发和维护工作。</p>
+                            <ul class="exp-list">
+                                <li><i class="fas fa-check-circle"></i> 使用React开发了响应式购物车和结账流程</li>
+                                <li><i class="fas fa-check-circle"></i> 实现了网站主题切换和多语言支持功能</li>
+                                <li><i class="fas fa-check-circle"></i> 与后端团队紧密合作，开发RESTful API接口</li>
+                                <li class="exp-more-item"><i class="fas fa-check-circle"></i> 优化网站性能，减少页面加载时间</li>
+                                <li class="exp-more-item hidden"><i class="fas fa-check-circle"></i> 开发并维护电商平台的支付和订单系统</li>
+                                <li class="exp-more-item hidden"><i class="fas fa-check-circle"></i> 参与用户体验调研，提出改进方案</li>
+                            </ul>
+
+
+                            <div class="exp-toggle-container">
+                                <div class="exp-toggle">显示更多 <i class="fas fa-chevron-down"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 经历项3 -->
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="experience-card-inner">
+                        <div class="experience-card-header">
+                            <div class="exp-year">2016 - 2020</div>
+                            <div class="exp-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <h3>本科学习</h3>
+                            <h4>计算机科学与技术专业</h4>
+                        </div>
+                        <div class="experience-card-content">
+                            <p>系统学习了计算机科学基础理论和实践技能，参与多个校园网站开发项目。</p>
+                            <ul class="exp-list">
+                                <li><i class="fas fa-check-circle"></i> GPA 3.8/4.0，专业排名前10%</li>
+                                <li><i class="fas fa-check-circle"></i> 获得校级优秀毕业设计奖</li>
+                                <li><i class="fas fa-check-circle"></i> 担任Web开发社团技术负责人</li>
+                                <li class="exp-more-item"><i class="fas fa-check-circle"></i> 参与多个校园网站项目开发</li>
+                                <li class="exp-more-item hidden"><i class="fas fa-check-circle"></i> 完成多门课程项目，并获得优秀评价</li>
+                                <li class="exp-more-item hidden"><i class="fas fa-check-circle"></i> 组织多次技术分享和学习活动</li>
+                            </ul>
+
+
+                            <div class="exp-toggle-container">
+                                <div class="exp-toggle">显示更多 <i class="fas fa-chevron-down"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 经历项4 -->
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="experience-card-inner">
+                        <div class="experience-card-header">
+                            <div class="exp-year">2020 - 2022</div>
+                            <div class="exp-icon"><i class="fas fa-code"></i></div>
+                            <h3>前端开发工程师</h3>
+                            <h4>互联网科技有限公司</h4>
+                        </div>
+                        <div class="experience-card-content">
+                            <p>负责公司电商平台的前端开发和维护工作。</p>
+                            <ul class="exp-list">
+                                <li><i class="fas fa-check-circle"></i> 使用React开发了响应式购物车和结账流程</li>
+                                <li><i class="fas fa-check-circle"></i> 实现了网站主题切换和多语言支持功能</li>
+                                <li><i class="fas fa-check-circle"></i> 与后端团队紧密合作，开发RESTful API接口</li>
+                                <li class="exp-more-item"><i class="fas fa-check-circle"></i> 优化网站性能，减少页面加载时间</li>
+                                <li class="exp-more-item hidden"><i class="fas fa-check-circle"></i> 开发并维护电商平台的支付和订单系统</li>
+                                <li class="exp-more-item hidden"><i class="fas fa-check-circle"></i> 参与用户体验调研，提出改进方案</li>
+                            </ul>
+
+
+                            <div class="exp-toggle-container">
+                                <div class="exp-toggle">显示更多 <i class="fas fa-chevron-down"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
+
+    <!-- 作品集部分 -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+                <!-- <p>我的代表性项目</p> -->
+            </div>
+            <!-- 新瀑布流风格作品集，采用Grid布局，卡片悬浮动画，结构更简洁，易扩展 -->
+            <div class="projects-masonry">
+                <!-- 新设计的卡片1：Tracker Tools -->
+                <div class="masonry-card expanded-card" id="tracker-tools">
+                    <div class="card-header">
+                        <img class="masonry-img" src="D:\Users\chris\Pictures\IT tracker tools.png" alt="Tracker Tools项目封面">
+                        <h3>Tracker Tools</h3>
+                        <p class="masonry-desc">高可用、高性能、安全的系统，为未来运维管理和优化决策提供数据支撑。</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="project-items">
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-file-alt"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">PDFMerger</span>
+                                    <span class="project-tag">PDF工具</span>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-tools"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">Tracker Maintenance</span>
+                                    <span class="project-tag">维护工具</span>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-network-wired"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">IP Scan Tools</span>
+                                    <span class="project-tag">网络扫描</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="masonry-tags"><span class="tag">数据分析</span><span class="tag">高可用</span></div>
+                    </div>
+                </div>
+                
+                <!-- 新设计的卡片2：Management Tools -->
+                <div class="masonry-card expanded-card" id="management-tools">
+                    <div class="card-header">
+                        <img class="masonry-img" src="D:\Users\chris\Pictures\it_management_tools.webp" alt="Management Tools项目封面">
+                        <h3>Management Tools</h3>
+                        <p class="masonry-desc">高效、透明、标准化的IT资产管理，降低管理复杂度和成本。</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="project-items">
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-laptop"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">IT 资产管理系统</span>
+                                    <span class="project-tag">Assets</span>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-key"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">许可证管理系统</span>
+                                    <span class="project-tag">Licenses</span>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-users-cog"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">用户权限管理系统</span>
+                                    <span class="project-tag">Access</span>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-headset"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">帮助台管理系统</span>
+                                    <span class="project-tag">Helpdesk</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="masonry-tags"><span class="tag">资产管理</span><span class="tag">自动化</span></div>
+                    </div>
+                </div>
+                
+                <!-- 新设计的卡片3：AI Tools -->
+                <div class="masonry-card expanded-card" id="ai-tools">
+                    <div class="card-header">
+                        <img class="masonry-img" src="D:\Users\chris\Pictures\ai_apps.webp" alt="AI Tools项目封面">
+                        <h3>AI Tools</h3>
+                        <p class="masonry-desc">智能AI工具集，提升办公与开发效率，探索AI创新应用。</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="project-items">
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-robot"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">Claude 文本生成工具</span>
+                                    <span class="project-tag">Text</span>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-comments"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">ChatGPT 对话工具</span>
+                                    <span class="project-tag">Chat</span>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-chart-bar"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">Grok 数据分析工具</span>
+                                    <span class="project-tag">Data</span>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-code"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">Windsurf 代码生成工具</span>
+                                    <span class="project-tag">Code</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="masonry-tags"><span class="tag">AI</span><span class="tag">效率工具</span></div>
+                    </div>
+                </div>
+                
+                <!-- 新设计的卡片4：Python Tools -->
+                <div class="masonry-card expanded-card" id="python-tools">
+                    <div class="card-header">
+                        <img class="masonry-img" src="D:\Users\chris\Pictures\python_tools_cover.webp" alt="Python Tools项目封面">
+                        <h3>Python Tools</h3>
+                        <p class="masonry-desc">优雅的天气预报与数据处理工具，支持多种API集成。</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="project-items">
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">数据分析库</span>
+                                    <span class="project-tag">Data</span>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-vial"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">测试框架</span>
+                                    <span class="project-tag">Testing</span>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-file-code"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">文件处理库</span>
+                                    <span class="project-tag">Files</span>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-icon"><i class="fas fa-cloud"></i></div>
+                                <div class="project-details">
+                                    <span class="project-name">API 客户端库</span>
+                                    <span class="project-tag">API</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="masonry-tags"><span class="tag">Python</span><span class="tag">API集成</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系部分 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p> </p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>tkgoh228@gmail.com</p>
+                        <a href="mailto:tkgoh228@gmail.com" class="contact-btn">Send</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h3>WhatsApp</h3>
+                        <p>+60 10-939-9688</p>
+                        <a href="https://wa.me/60109399688" class="contact-btn">Contact</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div>
+                        <h3>LinkedIn</h3>
+                        <p>linkedin.com/in/zhangming</p>
+                        <a href="https://linkedin.com/in/zhangming" target="_blank" class="contact-btn">View</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div>
+                        <h3>GitHub</h3>
+                        <p>github.com/zhangming</p>
+                        <a href="https://github.com/zhangming" target="_blank" class="contact-btn">Check</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo"></div>
+            <p>&copy; 2025 张明. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <!-- 项目模态框 -->
+    <div id="simple-project-modal" class="simple-modal">
+        <div class="simple-modal-overlay"></div>
+        <div class="simple-modal-content">
+            <span class="simple-modal-close">&times;</span>
+            <h2 id="simple-modal-title">项目列表</h2>
+            <div id="simple-modal-list" class="simple-project-list">
+                <!-- 项目列表将在此处显示 -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- 原来的模态框(保留作为备用) -->
+    <div id="project-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div id="modal-list">
+                <!-- 项目列表将在此处显示 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <!-- 引入AOS动画库 -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- 引入主脚本 -->
+    <script src="script.js"></script>
+    <!-- 引入经历部分交互脚本 -->
+    <script src="experience.js"></script>
