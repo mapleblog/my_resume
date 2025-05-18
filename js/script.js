@@ -1,4 +1,12 @@
 // 导航菜单切换
+// 页面刷新时滚动到顶部
+window.onload = function() {
+    window.scrollTo(0, 0);
+};
+
+// 确保在页面加载时也滚动到顶部
+history.scrollRestoration = 'manual';
+
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -120,10 +128,47 @@ function checkScroll() {
     // 时间线动画
     const timelineItems = document.querySelectorAll('.timeline-item');
     timelineItems.forEach(item => {
-        if (isElementInViewport(item)) {
-            item.classList.add('visible');
-        }
+        // 立即添加visible类，不等待滚动
+        item.classList.add('visible');
     });
+    
+    // 添加渐出效果函数
+    function handleTimelineFadeEffect() {
+        const timelineSection = document.getElementById('experience');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        if (!timelineSection || timelineItems.length === 0) return;
+        
+        const sectionTop = timelineSection.getBoundingClientRect().top;
+        const sectionBottom = timelineSection.getBoundingClientRect().bottom;
+        const windowHeight = window.innerHeight;
+        
+        // 如果时间线部分在视口内
+        if (sectionTop < windowHeight && sectionBottom > 0) {
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                const itemCenter = itemTop + item.offsetHeight / 2;
+                
+                // 计算元素中心点与视口中心的距离
+                const distanceFromCenter = Math.abs(itemCenter - windowHeight / 2);
+                const maxDistance = windowHeight * 0.6; // 最大距离阈值
+                
+                if (distanceFromCenter > maxDistance) {
+                    // 如果距离超过阈值，添加渐出效果
+                    item.classList.add('fade-out');
+                } else {
+                    // 否则移除渐出效果
+                    item.classList.remove('fade-out');
+                }
+            });
+        }
+    }
+    
+    // 初始调用一次渐出效果
+    handleTimelineFadeEffect();
+    
+    // 滚动时触发渐出效果
+    window.addEventListener('scroll', handleTimelineFadeEffect);
 
     // 项目卡片动画
     const projectCards = document.querySelectorAll('.project-card');
@@ -165,40 +210,40 @@ const projectsData = {
     'tracker-tools': {
         title: 'Tracker Tools 项目列表',
         items: [
-            { name: 'PDFMerger', tag: 'PDF工具', type: 'image', url: 'C:\\Users\\HostDemo\\Pictures\\disneyland-paris.jpg' },
-            { name: 'Tracker Maintenance', tag: '维护工具', type: 'image', url: 'C:\\Users\\HostDemo\\Pictures\\disneyland-paris.jpg' },
-            { name: 'IP Scan Tools', tag: '网络扫描', type: 'image', url: 'C:\\Users\\HostDemo\\Pictures\\disneyland-paris.jpg' }
+            { name: 'PDFMerger', tag: 'PDF工具', type: 'image', url: 'https://images.unsplash.com/photo-1544396821-4dd40b938ad3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', description: 'PDF合并工具可以将多个PDF文件合并为一个文件，支持文件排序、页面选择和文件压缩等功能。' },
+            { name: 'Tracker Maintenance', tag: '维护工具', type: 'image', url: 'https://source.unsplash.com/random/800x600/?maintenance,tech' },
+            { name: 'IP Scan Tools', tag: '网络扫描', type: 'image', url: 'https://source.unsplash.com/random/800x600/?network,security' }
         ]
     },
     'management-tools': {
         title: 'Management Tools 项目列表',
         items: [
-            { name: 'IT 资产管理系统', tag: 'Assets', type: 'image', url: 'D:\\Users\\chris\\Pictures\\it_management_tools.webp' },
-            { name: '许可证管理系统', tag: 'Licenses', type: 'pdf', url: '#' },
-            { name: '用户权限管理系统', tag: 'Access', type: 'doc', url: '#' },
-            { name: '帮助台管理系统', tag: 'Helpdesk', type: 'image', url: 'D:\\Users\\chris\\Pictures\\it_management_tools.webp' },
-            { name: '配置管理数据库', tag: 'CMDB', type: 'pdf', url: '#' }
+            { name: 'IT 资产管理系统', tag: 'Assets', type: 'image', url: 'https://source.unsplash.com/random/800x600/?management,assets' },
+            { name: '许可证管理系统', tag: 'Licenses', type: 'image', url: 'https://source.unsplash.com/random/800x600/?license,software' },
+            { name: '用户权限管理系统', tag: 'Access', type: 'image', url: 'https://source.unsplash.com/random/800x600/?access,security' },
+            { name: '帮助台管理系统', tag: 'Helpdesk', type: 'image', url: 'https://source.unsplash.com/random/800x600/?helpdesk,support' },
+            { name: '配置管理数据库', tag: 'CMDB', type: 'image', url: 'https://source.unsplash.com/random/800x600/?database,config' }
         ]
     },
     'ai-tools': {
         title: 'AI Tools 项目列表',
         items: [
-            { name: 'Claude 文本生成工具', tag: 'Text', type: 'image', url: 'D:\\Users\\chris\\Pictures\\ai_apps.webp' },
-            { name: 'ChatGPT 对话工具', tag: 'Chat', type: 'pdf', url: '#' },
-            { name: 'Grok 数据分析工具', tag: 'Data', type: 'doc', url: '#' },
-            { name: 'Windsurf 代码生成工具', tag: 'Code', type: 'image', url: 'D:\\Users\\chris\\Pictures\\ai_apps.webp' },
-            { name: 'AI 图像生成工具', tag: 'Image', type: 'pdf', url: '#' }
+            { name: 'Claude 文本生成工具', tag: 'Text', type: 'image', url: 'https://source.unsplash.com/random/800x600/?ai,text' },
+            { name: 'ChatGPT 对话工具', tag: 'Chat', type: 'image', url: 'https://source.unsplash.com/random/800x600/?chat,ai' },
+            { name: 'Grok 数据分析工具', tag: 'Data', type: 'image', url: 'https://source.unsplash.com/random/800x600/?data,analysis' },
+            { name: 'Windsurf 代码生成工具', tag: 'Code', type: 'image', url: 'https://source.unsplash.com/random/800x600/?code,programming' },
+            { name: 'AI 图像生成工具', tag: 'Image', type: 'image', url: 'https://source.unsplash.com/random/800x600/?ai,image' }
         ]
     },
     'python-tools': {
         title: 'Python Tools 项目列表',
         items: [
-            { name: '数据分析库', tag: 'Data', type: 'image', url: 'D:\\Users\\chris\\Pictures\\python_tools_cover.webp' },
-            { name: '测试框架', tag: 'Testing', type: 'pdf', url: '#' },
-            { name: '文件处理库', tag: 'Files', type: 'doc', url: '#' },
-            { name: 'API 客户端库', tag: 'API', type: 'image', url: 'D:\\Users\\chris\\Pictures\\python_tools_cover.webp' },
-            { name: '数据可视化库', tag: 'Viz', type: 'pdf', url: '#' },
-	        { name: 'PDF合并工具', tag: 'Apps', type: 'doc', url: '#' }
+            { name: '数据分析库', tag: 'Data', type: 'image', url: 'https://source.unsplash.com/random/800x600/?python,data' },
+            { name: '测试框架', tag: 'Testing', type: 'image', url: 'https://source.unsplash.com/random/800x600/?testing,code' },
+            { name: '文件处理库', tag: 'Files', type: 'image', url: 'https://source.unsplash.com/random/800x600/?files,document' },
+            { name: 'API 客户端库', tag: 'API', type: 'image', url: 'https://source.unsplash.com/random/800x600/?api,web' },
+            { name: '数据可视化库', tag: 'Viz', type: 'image', url: 'https://source.unsplash.com/random/800x600/?visualization,chart' },
+	        { name: 'PDF合并工具', tag: 'Apps', type: 'image', url: 'https://source.unsplash.com/random/800x600/?pdf,tools' }
         ]
     }
 };
@@ -299,10 +344,20 @@ simpleModalOverlay.addEventListener('click', function() {
 });
 
 // ESC键关闭模态框
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && simpleModal.classList.contains('active')) {
-        simpleModal.classList.remove('active');
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    // 页面加载时滚动到顶部
+    window.scrollTo(0, 0);
+    
+    // 确保在所有资源加载完成后也滚动到顶部
+    window.onload = function() {
+        window.scrollTo(0, 0);
+    };
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && simpleModal.classList.contains('active')) {
+            simpleModal.classList.remove('active');
+        }
+    });
 });
 
 // 原来的模态框代码（保留，但不再使用）
@@ -428,14 +483,24 @@ function closeModalFunction() {
 }
 
 // 按ESC键关闭模态框
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.style.display === 'block') {
-        closeModalFunction();
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    // 页面加载时滚动到顶部
+    window.scrollTo(0, 0);
+    
+    // 确保在所有资源加载完成后也滚动到顶部
+    window.onload = function() {
+        window.scrollTo(0, 0);
+    };
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            closeModalFunction();
+        }
+    });
 });
 
-// 显示图片预览
-function showImagePreview(url, title) {
+// 显示图片预览 - 增强版本
+function showImagePreview(url, title, description) {
     console.log('显示图片预览:', url, title);
     
     try {
@@ -452,27 +517,102 @@ function showImagePreview(url, title) {
         
         const imageTitle = document.createElement('h3');
         imageTitle.textContent = title || '图片预览';
+        imageTitle.className = 'preview-title';
+        
+        // 添加项目标签
+        const projectTag = document.createElement('div');
+        projectTag.className = 'modal-project-tag';
+        const projectType = getProjectTypeByName(title);
+        if (projectType) {
+            projectTag.textContent = projectType;
+        }
+        
+        // 添加项目描述
+        const projectDescription = document.createElement('div');
+        projectDescription.className = 'modal-project-description';
+        if (description) {
+            projectDescription.textContent = description;
+        }
+        
+        // 添加图片容器，支持缩放和拖动
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'image-container';
         
         const image = document.createElement('img');
         image.src = url;
         image.alt = title || '项目图片';
+        image.className = 'preview-image';
         image.onerror = function() {
             // 图片加载失败时显示错误信息
             this.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20fill%3D%22%23f5f5f5%22%20width%3D%22100%22%20height%3D%22100%22%2F%3E%3Ctext%20fill%3D%22%23999%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3E图片无法加载%3C%2Ftext%3E%3C%2Fsvg%3E';
             console.error('图片加载失败:', url);
         };
         
+        // 添加缩放控制按钮
+        const zoomControls = document.createElement('div');
+        zoomControls.className = 'zoom-controls';
+        
+        const zoomIn = document.createElement('button');
+        zoomIn.className = 'zoom-btn zoom-in';
+        zoomIn.innerHTML = '<i class="fas fa-search-plus"></i>';
+        zoomIn.title = '放大';
+        
+        const zoomOut = document.createElement('button');
+        zoomOut.className = 'zoom-btn zoom-out';
+        zoomOut.innerHTML = '<i class="fas fa-search-minus"></i>';
+        zoomOut.title = '缩小';
+        
+        const resetZoom = document.createElement('button');
+        resetZoom.className = 'zoom-btn reset-zoom';
+        resetZoom.innerHTML = '<i class="fas fa-undo"></i>';
+        resetZoom.title = '重置';
+        
+        zoomControls.appendChild(zoomIn);
+        zoomControls.appendChild(zoomOut);
+        zoomControls.appendChild(resetZoom);
+        
+        imageContainer.appendChild(image);
+        
         imageContent.appendChild(closeBtn);
         imageContent.appendChild(imageTitle);
-        imageContent.appendChild(image);
-        imageModal.appendChild(imageContent);
+        if (projectTag.textContent) {
+            imageContent.appendChild(projectTag);
+        }
+        if (description) {
+            imageContent.appendChild(projectDescription);
+        }
+        imageContent.appendChild(imageContainer);
+        imageContent.appendChild(zoomControls);
         
+        imageModal.appendChild(imageContent);
         document.body.appendChild(imageModal);
         
         // 显示图片预览
         setTimeout(() => {
             imageModal.classList.add('show');
         }, 10);
+        
+        // 图片缩放功能
+        let scale = 1;
+        const scaleStep = 0.1;
+        
+        zoomIn.addEventListener('click', () => {
+            scale += scaleStep;
+            image.style.transform = `scale(${scale})`;
+        });
+        
+        zoomOut.addEventListener('click', () => {
+            if (scale > scaleStep) {
+                scale -= scaleStep;
+                image.style.transform = `scale(${scale})`;
+            }
+        });
+        
+        resetZoom.addEventListener('click', () => {
+            scale = 1;
+            image.style.transform = 'scale(1)';
+            image.style.transition = 'transform 0.3s ease';
+        });
         
         // 关闭图片预览模态框
         closeBtn.addEventListener('click', () => {
@@ -491,16 +631,104 @@ function showImagePreview(url, title) {
                 }, 300);
             }
         });
+        
+        // 支持键盘操作
+        document.addEventListener('keydown', function handleKeyDown(e) {
+            if (imageModal.classList.contains('show')) {
+                if (e.key === 'Escape') {
+                    imageModal.classList.remove('show');
+                    setTimeout(() => {
+                        document.body.removeChild(imageModal);
+                        document.removeEventListener('keydown', handleKeyDown);
+                    }, 300);
+                } else if (e.key === '+' || e.key === '=') {
+                    scale += scaleStep;
+                    image.style.transform = `scale(${scale})`;
+                } else if (e.key === '-') {
+                    if (scale > scaleStep) {
+                        scale -= scaleStep;
+                        image.style.transform = `scale(${scale})`;
+                    }
+                } else if (e.key === '0') {
+                    scale = 1;
+                    image.style.transform = 'scale(1)';
+                }
+            }
+        });
     } catch (error) {
         console.error('显示图片预览时出错:', error);
         alert('无法显示图片预览');
     }
 }
 
+// 获取项目类型
+function getProjectTypeByName(projectName) {
+    // 遍历所有项目数据查找匹配的项目类型
+    for (const categoryId in projectsData) {
+        const category = projectsData[categoryId];
+        for (const item of category.items) {
+            if (item.name === projectName) {
+                return item.tag;
+            }
+        }
+    }
+    return null;
+}
+
+// 初始化项目名称点击事件
+function initProjectNameClickEvents() {
+    const projectNames = document.querySelectorAll('.project-name');
+    
+    projectNames.forEach(nameElement => {
+        const projectName = nameElement.textContent;
+        nameElement.classList.add('clickable');
+        
+        // 判断是否是PDFMerger项目，如果是则添加特殊样式
+        if (projectName === 'PDFMerger') {
+            nameElement.classList.add('highlight-project');
+        }
+        
+        // 添加点击提示
+        const tooltip = document.createElement('span');
+        tooltip.className = 'name-tooltip';
+        tooltip.textContent = '点击查看详情';
+        nameElement.appendChild(tooltip);
+        
+        nameElement.addEventListener('click', () => {
+            // 查找项目数据
+            const parentCard = nameElement.closest('.masonry-card');
+            if (!parentCard) return;
+            
+            const cardId = parentCard.id;
+            const projectData = projectsData[cardId];
+            
+            if (projectData) {
+                const item = projectData.items.find(item => item.name === projectName);
+                if (item && item.url && item.type === 'image') {
+                    // 添加点击动画效果
+                    nameElement.classList.add('clicked');
+                    setTimeout(() => {
+                        nameElement.classList.remove('clicked');
+                    }, 300);
+                    
+                    // 显示预览，并传入描述信息
+                    showImagePreview(item.url, item.name, item.description);
+                } else {
+                    console.log('项目没有图片或不是图片类型:', projectName);
+                    alert('该项目暂无图片预览');
+                }
+            }
+        });
+    });
+}
+
 // 页面加载完成后执行
 window.addEventListener('load', () => {
     // 技能进度条动画
     setTimeout(animateSkills, 1000);
+    
+    // 为所有项目名称添加点击事件
+    initProjectNameClickEvents();
     
     // 打字效果
     const typingElements = document.querySelectorAll('.typing-text');
