@@ -70,11 +70,44 @@ document.querySelector('.hamburger').addEventListener('click', function() {
 
 // 技能进度条动画
 function animateSkills() {
-    const skillBars = document.querySelectorAll('.skill-progress');
-    skillBars.forEach(skill => {
-        const percentage = skill.getAttribute('data-progress') || skill.getAttribute('data-width');
-        skill.style.width = percentage + '%';
+    const skillItems = document.querySelectorAll('.skill-item');
+    let isFirstAnimation = true;
+    
+    // 重置所有技能条的宽度为0
+    document.querySelectorAll('.skill-fill').forEach(fill => {
+        fill.style.width = '0';
     });
+    
+    // 延迟一小段时间后应用宽度，以确保动画效果
+    setTimeout(() => {
+        skillItems.forEach((item, index) => {
+            // 清除任何可能的内联样式
+            item.removeAttribute('style');
+            
+            const skillFill = item.querySelector('.skill-fill');
+            const percentage = item.getAttribute('data-skill');
+            const delay = isFirstAnimation ? 300 + (index * 200) : index * 150;
+            
+            if (skillFill && percentage) {
+                // 延迟每个技能条的动画，创造依次填充的效果
+                setTimeout(() => {
+                    // 确保初始宽度为0
+                    skillFill.style.width = '0';
+                    
+                    // 使用requestAnimationFrame确保平滑过渡
+                    requestAnimationFrame(() => {
+                        // 添加一个小延迟以确保浏览器渲染周期
+                        setTimeout(() => {
+                            skillFill.style.width = percentage + '%';
+                        }, 50);
+                    });
+                }, delay);
+            }
+        });
+    }, 400);
+    
+    // 设置标志为非首次动画
+    isFirstAnimation = false;
 }
 
 // 检查元素是否在视图中
@@ -724,8 +757,10 @@ function initProjectNameClickEvents() {
 
 // 页面加载完成后执行
 window.addEventListener('load', () => {
-    // 技能进度条动画
-    setTimeout(animateSkills, 1000);
+    // 技能进度条动画 - 立即执行一次，不等待滚动
+    animateSkills();
+    // 为了确保进度条显示，再次延迟执行
+    setTimeout(animateSkills, 500);
     
     // 为所有项目名称添加点击事件
     initProjectNameClickEvents();

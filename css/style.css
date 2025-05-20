@@ -418,45 +418,395 @@ section {
     min-width: 120px;
 }
 
-/* 技能部分 */
+/* 技能部分 - 优化版 */
 .skills {
-    background-color: var(--light-bg);
+    background-color: #f8fafc;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z%22 fill=%22%233498db%22 fill-opacity=%22.05%22 fill-rule=%22evenodd%22/%3E%3C/svg%3E');
+    opacity: 0.3;
+    z-index: 0;
 }
 
 .skills-container {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    position: relative;
+    z-index: 2;
 }
 
 .skill-category {
     flex: 1;
     min-width: 300px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(52, 152, 219, 0.1);
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(52, 152, 219, 0.1);
+}
+
+.skill-category h3 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.skill-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    border-radius: 3px;
 }
 
 .skill-item {
     margin-bottom: 25px;
+    position: relative;
 }
 
 .skill-info {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    font-weight: 500;
 }
 
+.skill-info span:first-child {
+    color: var(--secondary-color);
+}
+
+.skill-info span:last-child {
+    color: var(--primary-color);
+    background: rgba(52, 152, 219, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+}
+
+/* 新设计的技能展示区域样式 */
+.skills {
+    background-color: #f5f7fa;
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.03);
+    background-image: linear-gradient(135deg, rgba(66, 103, 178, 0.05) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(66, 103, 178, 0.05) 100%);
+}
+
+.skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 10% 20%, rgba(66, 103, 178, 0.08) 0%, rgba(0, 0, 0, 0) 80%);
+    z-index: 0;
+}
+
+/* 技能容器 */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 技能类别 */
+.skills-category {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(66, 103, 178, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(66, 103, 178, 0.1);
+}
+
+.skills-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(66, 103, 178, 0.12);
+    border-color: rgba(66, 103, 178, 0.2);
+}
+
+.skills-category h3 {
+    font-size: 1.5rem;
+    color: #334155;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 12px;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(66, 103, 178, 0.1);
+}
+
+.skills-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #4267B2;
+}
+
+/* 技能列表 */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* 技能项 */
+.skill-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+    padding: 5px 0;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+}
+
+.skill-item:hover .skill-bar {
+    background-color: rgba(236, 240, 241, 1);
+}
+
+/* 技能项动画 */
+@keyframes skillAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 技能项依次显示 */
+.skill-item:nth-child(1) { animation: skillAppear 0.5s ease forwards 0.1s; }
+.skill-item:nth-child(2) { animation: skillAppear 0.5s ease forwards 0.2s; }
+.skill-item:nth-child(3) { animation: skillAppear 0.5s ease forwards 0.3s; }
+.skill-item:nth-child(4) { animation: skillAppear 0.5s ease forwards 0.4s; }
+.skill-item:nth-child(5) { animation: skillAppear 0.5s ease forwards 0.5s; }
+.skill-item:nth-child(6) { animation: skillAppear 0.5s ease forwards 0.6s; }
+
+/* 技能头部 */
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* 技能名称 */
+.skill-name {
+    font-weight: 500;
+    color: #334155;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.skill-item:hover .skill-name {
+    color: #4267B2;
+}
+
+/* 技能百分比 - 基本样式 */
+.skill-percentage {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 4px 14px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(66, 103, 178, 0.25);
+    position: relative;
+    z-index: 1;
+}
+
+.skill-item:hover .skill-percentage {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(66, 103, 178, 0.35);
+}
+
+/* 百分比颜色区分 */
+/* 初级水平 (0-60%) */
+.skill-item[data-skill="60"] .skill-percentage,
+.skill-item[data-skill="55"] .skill-percentage,
+.skill-item[data-skill="50"] .skill-percentage {
+    background-color: #4263EB;
+}
+
+.skill-item[data-skill="60"]:hover .skill-percentage,
+.skill-item[data-skill="55"]:hover .skill-percentage,
+.skill-item[data-skill="50"]:hover .skill-percentage {
+    background-color: #3b5bdb;
+}
+
+/* 中级水平 (61-80%) */
+.skill-item[data-skill="80"] .skill-percentage,
+.skill-item[data-skill="75"] .skill-percentage,
+.skill-item[data-skill="70"] .skill-percentage,
+.skill-item[data-skill="65"] .skill-percentage {
+    background-color: #4267B2;
+}
+
+.skill-item[data-skill="80"]:hover .skill-percentage,
+.skill-item[data-skill="75"]:hover .skill-percentage,
+.skill-item[data-skill="70"]:hover .skill-percentage,
+.skill-item[data-skill="65"]:hover .skill-percentage {
+    background-color: #365899;
+}
+
+/* 高级水平 (81-90%) */
+.skill-item[data-skill="90"] .skill-percentage,
+.skill-item[data-skill="85"] .skill-percentage {
+    background-color: #3B5998;
+}
+
+.skill-item[data-skill="90"]:hover .skill-percentage,
+.skill-item[data-skill="85"]:hover .skill-percentage {
+    background-color: #2A4374;
+}
+
+/* 专家水平 (91-100%) */
+.skill-item[data-skill="100"] .skill-percentage,
+.skill-item[data-skill="95"] .skill-percentage {
+    background-color: #1E3A8A;
+}
+
+.skill-item[data-skill="100"]:hover .skill-percentage,
+.skill-item[data-skill="95"]:hover .skill-percentage {
+    background-color: #172554;
+}
+
+/* 技能进度条 */
 .skill-bar {
     height: 10px;
-    background-color: #e0e0e0;
-    border-radius: 10px;
+    background-color: rgba(236, 240, 241, 0.8);
+    border-radius: 5px;
     overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-top: 5px;
 }
 
-.skill-progress {
+/* 技能填充 - 基本样式 */
+.skill-fill {
     height: 100%;
-    background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
-    border-radius: 10px;
-    width: 0;
-    transition: width 1.5s ease;
+    border-radius: 5px;
+    width: 0; /* 初始宽度为0 */
+    position: relative;
+    transition: width 1.2s ease-out;
+    box-shadow: 0 0 8px rgba(66, 103, 178, 0.5);
+}
+
+/* 技能水平颜色区分 */
+/* 初级水平 (0-60%) */
+.skill-item[data-skill="60"] .skill-fill,
+.skill-item[data-skill="55"] .skill-fill,
+.skill-item[data-skill="50"] .skill-fill {
+    background: linear-gradient(90deg, #5C7CFA, #4263EB);
+}
+
+/* 中级水平 (61-80%) */
+.skill-item[data-skill="80"] .skill-fill,
+.skill-item[data-skill="75"] .skill-fill,
+.skill-item[data-skill="70"] .skill-fill,
+.skill-item[data-skill="65"] .skill-fill {
+    background: linear-gradient(90deg, #4267B2, #365899);
+}
+
+/* 高级水平 (81-90%) */
+.skill-item[data-skill="90"] .skill-fill,
+.skill-item[data-skill="85"] .skill-fill {
+    background: linear-gradient(90deg, #3B5998, #2A4374);
+}
+
+/* 专家水平 (91-100%) */
+.skill-item[data-skill="100"] .skill-fill,
+.skill-item[data-skill="95"] .skill-fill {
+    background: linear-gradient(90deg, #1E3A8A, #172554);
+}
+
+/* 技能填充光效 */
+.skill-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: skillShine 2s ease-in-out infinite;
+    animation-delay: 0.8s;
+}
+
+@keyframes skillShine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* 技能项悬停效果 */
+.skill-item:hover .skill-bar {
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+}
+
+.skill-item:hover .skill-name i {
+    transform: scale(1.2);
+    color: #2980b9;
+}
+
+/* 动画 */
+@keyframes skillFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes skillShine {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+@keyframes skill-stripes {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 20px 0;
+    }
 }
 
 /* 经历部分 - 新设计 */
